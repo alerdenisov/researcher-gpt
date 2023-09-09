@@ -21,7 +21,7 @@ from fastapi import FastAPI
 load_dotenv()
 brwoserless_api_key = os.getenv("BROWSERLESS_API_KEY")
 serper_api_key = os.getenv("SERP_API_KEY")
-
+password = os.getenv("API_PASSWORD")
 # 1. Tool for search
 
 
@@ -201,7 +201,7 @@ class Query(BaseModel):
 
 @app.post("/")
 def researchAgent(query: Query):
-    if query.password != os.getenv("PASSWORD"):
+    if query.password != password:
         return "Wrong password"
     
     query = query.query
