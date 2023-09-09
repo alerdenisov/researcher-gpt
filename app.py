@@ -196,6 +196,7 @@ app = FastAPI()
 
 class Query(BaseModel):
     query: str
+    password: str
 
 
 @app.post("/")
